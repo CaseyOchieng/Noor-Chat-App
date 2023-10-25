@@ -4,11 +4,12 @@ import 'package:noor/components/my_textfield.dart';
 
 class LoginPage extends StatelessWidget {
   //text controllers for the text fields
+
+  final void Function()? onTap;
+  //text controllers for the text fields
+  LoginPage({super.key, this.onTap});
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
-  //text controllers for the text fields
-  LoginPage({super.key});
   //The Login function
   void login() {}
 
@@ -94,6 +95,7 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
+                    onTap: onTap,
                     child: const Text(
                       "Register Here",
                       style: TextStyle(fontWeight: FontWeight.bold),
