@@ -7,11 +7,15 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: const Center(
+      body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Logo
-
+            Image.asset(
+              'asset/logo_bg.png',
+              color: Theme.of(context).colorScheme.inversePrimary,
+            ),
             // app name
 
             //email textfield
