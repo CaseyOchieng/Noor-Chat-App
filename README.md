@@ -48,4 +48,4 @@ We would like to express our gratitude to the Firebase and Flutter communities f
 
 If you have any questions or inquiries, please contact our team.
 
-We hope you enjoy using this platform! 
+We hope you enjoy using this platform!
