@@ -5,6 +5,27 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
+      body: const Center(
+        child: Column(
+          children: [
+            // Logo
+
+            // app name
+
+            //email textfield
+
+            //password textfield
+
+            //forgot password
+
+            // sign up button
+
+            //don't have an account? Register here
+          ],
+        ),
+      ),
+    );
   }
 }
