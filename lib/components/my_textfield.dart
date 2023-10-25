@@ -17,9 +17,14 @@ class MyTextField extends StatelessWidget {
     return TextField(
       controller: controller,
       decoration: InputDecoration(
-        border: const OutlineInputBorder(),
+        border: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(12),
+          ),
+        ),
         hintText: hint,
       ),
+      obscureText: obscure,
     );
   }
 }

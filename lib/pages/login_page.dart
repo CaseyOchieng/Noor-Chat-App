@@ -20,11 +20,13 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // Logo
-              Image.asset(
-                'asset/logo_bg.png',
-                color: Theme.of(context).colorScheme.inversePrimary,
-                // width: 350,
-                fit: BoxFit.scaleDown,
+              ClipRRect(
+                child: Image.asset(
+                  'asset/logo_bg.png',
+                  color: Theme.of(context).colorScheme.inversePrimary,
+                  width: 300,
+                  fit: BoxFit.scaleDown,
+                ),
               ),
 
               //gap
@@ -35,7 +37,7 @@ class LoginPage extends StatelessWidget {
               // app name
               const Text('M I N I M A L'),
               const SizedBox(
-                height: 25,
+                height: 50,
               ),
               //email textfield
               MyTextField(
@@ -44,13 +46,29 @@ class LoginPage extends StatelessWidget {
                 controller: emailController,
               ),
               //password textfield
+              const SizedBox(
+                height: 10,
+              ),
               MyTextField(
                 hint: 'Password',
-                obscure: false,
+                obscure: true,
                 controller: passwordController,
               ),
+              const SizedBox(
+                height: 10,
+              ),
               //forgot password
-
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    'Forgot Password ?',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
+                  ),
+                ],
+              ),
               // sign up button
 
               //don't have an account? Register here
