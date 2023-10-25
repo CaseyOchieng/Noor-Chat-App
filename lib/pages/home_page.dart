@@ -20,15 +20,21 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.background,
         elevation: 0,
-        shadowColor: Colors.transparent,
-        title: const Text(
+        title: Text(
           'Noor Gallery',
-          style: TextStyle(fontSize: 18, fontFamily: 'Poppins'),
+          style: TextStyle(
+            fontSize: 18,
+            fontFamily: 'Poppins',
+            color: Theme.of(context).colorScheme.inversePrimary,
+          ),
         ),
         actions: [
           IconButton(
             onPressed: logout,
-            icon: const Icon(Icons.person),
+            icon: Icon(
+              Icons.person,
+              color: Theme.of(context).colorScheme.inversePrimary,
+            ),
           )
         ],
       ),

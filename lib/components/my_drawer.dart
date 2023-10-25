@@ -11,6 +11,7 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      elevation: 0,
       backgroundColor: Theme.of(context).colorScheme.background,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -38,6 +39,8 @@ class MyDrawer extends StatelessWidget {
                   title: const Text('H O M E'),
                   onTap: () {
                     Navigator.pop(context);
+
+                    Navigator.pushNamed(context, '/home');
                   },
                 ),
               ),
@@ -52,6 +55,8 @@ class MyDrawer extends StatelessWidget {
                   title: const Text('P R O F I L E'),
                   onTap: () {
                     Navigator.pop(context);
+
+                    Navigator.pushNamed(context, '/profile');
                   },
                 ),
               ),
@@ -67,6 +72,8 @@ class MyDrawer extends StatelessWidget {
                   title: const Text('U S E R S'),
                   onTap: () {
                     Navigator.pop(context);
+
+                    Navigator.pushNamed(context, '/users');
                   },
                 ),
               ),
