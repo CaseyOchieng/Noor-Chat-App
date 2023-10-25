@@ -1,5 +1,5 @@
 name: noor
-description: A new Flutter project.
+description: We built this platform using Firebase and Flutter. Firebase handles the backend infrastructure, which includes real-time database, authentication, and cloud storage. Flutter, on the other hand, is the framework we used to develop the user interface, ensuring a seamless and responsive experience.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
