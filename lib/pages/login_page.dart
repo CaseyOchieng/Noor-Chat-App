@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:noor/components/my_button.dart';
 import 'package:noor/components/my_textfield.dart';
 
 class LoginPage extends StatelessWidget {
@@ -8,6 +9,8 @@ class LoginPage extends StatelessWidget {
 
   //text controllers for the text fields
   LoginPage({super.key});
+  //The Login function
+  void login() {}
 
   @override
   Widget build(BuildContext context) {
@@ -69,9 +72,16 @@ class LoginPage extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(
+                height: 25,
+              ),
               // sign up button
-
+              MyButtons(
+                text: 'Login',
+                onTap: login,
+              ),
               //don't have an account? Register here
+              const Text("Don't have an account?"),
             ],
           ),
         ),
