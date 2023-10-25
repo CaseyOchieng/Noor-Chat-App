@@ -3,5 +3,6 @@
     "java.configuration.updateBuildConfiguration": "interactive",
     "cSpell.words": [
         "appspot"
-    ]
+    ],
+    "cmake.sourceDirectory": "/home/user/Dev/flutter/noor/linux"
 }
