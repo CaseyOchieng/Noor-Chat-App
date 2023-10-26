@@ -30,7 +30,9 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           IconButton(
-            onPressed: logout,
+            onPressed: () {
+              Navigator.pushNamed(context, '/profile');
+            },
             icon: Icon(
               Icons.person,
               color: Theme.of(context).colorScheme.inversePrimary,

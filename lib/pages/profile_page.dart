@@ -1,7 +1,4 @@
 // ignore_for_file: must_be_immutable
-
-import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -52,21 +49,26 @@ class ProfilePage extends StatelessWidget {
             //extracting data
             Map<String, dynamic>? user = snapshot.data?.data();
 
-            return Column(
-              children: [
-                // Profile pic
-                // Image.asset('asset/profile.png'),
-                //Name of user
-                Text(
-                  user!['username'].toString(),
-                  style: const TextStyle(),
-                ),
-                //Email
-                Text(
-                  user['email'].toString(),
-                  style: const TextStyle(),
-                )
-              ],
+            return Center(
+              child: Column(
+                children: [
+                  // Profile pic
+                  Image.asset(
+                    'asset/profile.png',
+                    width: 100,
+                  ),
+                  //Name of user
+                  Text(
+                    user!['username'].toString(),
+                    style: const TextStyle(),
+                  ),
+                  //Email
+                  Text(
+                    user['email'].toString(),
+                    style: const TextStyle(),
+                  )
+                ],
+              ),
             );
           } else {
             return const Center(
