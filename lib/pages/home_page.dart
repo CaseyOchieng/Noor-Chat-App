@@ -18,13 +18,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.background,
         elevation: 0,
         title: Text(
           'Noor Gallery',
           style: TextStyle(
-            fontSize: 18,
-            fontFamily: 'Poppins',
             color: Theme.of(context).colorScheme.inversePrimary,
           ),
         ),
