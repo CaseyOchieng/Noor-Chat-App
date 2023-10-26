@@ -19,10 +19,13 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text(
-          'Noor Gallery',
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.inversePrimary,
+        title: Center(
+          child: Text(
+            'N O O R  ',
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.inversePrimary,
+              fontFamily: 'Poppins',
+            ),
           ),
         ),
         actions: [

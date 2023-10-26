@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:noor/components/my_button.dart';
@@ -48,7 +49,11 @@ class _RegisterPageState extends State<RegisterPage> {
           email: emailController.text,
           password: passwordController.text,
         );
-        Navigator.pop(context);
+        //create a user document.
+        createUserDocument(userCredential);
+
+        // Loading page
+        if (context.mounted) Navigator.pop(context);
       } on FirebaseAuthException catch (e) {
         Navigator.pop(context);
 
@@ -57,7 +62,19 @@ class _RegisterPageState extends State<RegisterPage> {
       }
     }
   }
-// try make a new user
+// try making  new user document and collect them in the firebase.
+
+  Future<void> createUserDocument(UserCredential? userCredential) async {
+    if (userCredential != null && userCredential.user != null) {
+      await FirebaseFirestore.instance
+          .collection("Users")
+          .doc(userCredential.user!.email)
+          .set({
+        'email': userCredential.user!.email,
+        'username': usernameController.text,
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
