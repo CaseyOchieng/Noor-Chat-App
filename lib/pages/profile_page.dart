@@ -31,43 +31,48 @@ class ProfilePage extends StatelessWidget {
         ),
       ),
       body: FutureBuilder<DocumentSnapshot<Map<String, dynamic>>>(
-          future: getUserDetails(),
-          builder: (context, snapshot) {
-            // Loading Circle
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-            // error handling
-            else if (snapshot.hasError) {
-              return Center(
-                child: Text('Error: ${snapshot.error}'),
-              );
-            }
-            // data handling
-            else if (snapshot.hasData) {
-              //extracting data
-              Map<String, dynamic>? user = snapshot.data!.data();
+        future: getUserDetails(),
+        builder: (context, snapshot) {
+          // Loading Circle
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          // error handling
+          else if (snapshot.hasError) {
+            return Center(
+              child: Text('Error: ${snapshot.error}'),
+            );
+          }
+          // data handling
+          else if (snapshot.hasData) {
+            //extracting data
+            Map<String, dynamic>? user = snapshot.data!.data();
 
-              return Column(
-                children: [
-                  // Profile pic
-                  Image.asset('asset/profile.png'),
-                  //Name of user
-                  Text(
-                    user!['username'].toString(),
-                    style: const TextStyle(),
-                  ),
-                  //Email
-                  Text(
-                    user['email'].toString(),
-                    style: const TextStyle(),
-                  )
-                ],
-              );
-            }
-          }),
+            return Column(
+              children: [
+                // Profile pic
+                Image.asset('asset/profile.png'),
+                //Name of user
+                Text(
+                  user!['username'].toString(),
+                  style: const TextStyle(),
+                ),
+                //Email
+                Text(
+                  user['email'].toString(),
+                  style: const TextStyle(),
+                )
+              ],
+            );
+          } else {
+            return const Center(
+              child: Text('No data'),
+            );
+          }
+        },
+      ),
     );
   }
 }
