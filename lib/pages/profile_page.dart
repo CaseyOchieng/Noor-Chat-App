@@ -1,5 +1,7 @@
 // ignore_for_file: must_be_immutable
 
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +32,7 @@ class ProfilePage extends StatelessWidget {
           ),
         ),
       ),
-      body: FutureBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+      body: FutureBuilder<DocumentSnapshot<Map<String, dynamic>?>>(
         future: getUserDetails(),
         builder: (context, snapshot) {
           // Loading Circle
@@ -48,12 +50,12 @@ class ProfilePage extends StatelessWidget {
           // data handling
           else if (snapshot.hasData) {
             //extracting data
-            Map<String, dynamic>? user = snapshot.data!.data();
+            Map<String, dynamic>? user = snapshot.data?.data();
 
             return Column(
               children: [
                 // Profile pic
-                Image.asset('asset/profile.png'),
+                // Image.asset('asset/profile.png'),
                 //Name of user
                 Text(
                   user!['username'].toString(),
