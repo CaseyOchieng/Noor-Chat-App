@@ -14,7 +14,7 @@ class _ProfilePageState extends State<ProfilePage> {
       appBar: AppBar(
         elevation: 0,
         title: Text(
-          'Users',
+          'Profile',
           style: TextStyle(
             color: Theme.of(context).colorScheme.inversePrimary,
           ),
