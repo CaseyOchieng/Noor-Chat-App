@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:noor/components/my_list_tile.dart';
 import 'package:noor/pages/helper_function.dart';
 
 class UsersPage extends StatefulWidget {
@@ -58,9 +59,13 @@ class _UsersPageState extends State<UsersPage> {
                   itemBuilder: (context, index) {
                     // get individual user
                     final user = users[index];
-                    return ListTile(
-                      title: Text(user['username']),
-                      subtitle: Text(user['email']),
+                    // get data from each user.
+                    String username = user['username'];
+                    String email = user['email'];
+                    // return from each user
+                    return MyListTile(
+                      title: username,
+                      subtitle: email,
                     );
                   },
                 ),
