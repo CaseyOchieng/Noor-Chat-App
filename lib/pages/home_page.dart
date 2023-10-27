@@ -104,10 +104,11 @@ class HomePage extends StatelessWidget {
                       // get data from each post.
                       String message = post['PostMessage'];
                       String userEmail = post['UserEmail'];
+                      // ignore: unused_local_variable
                       Timestamp timestamp = post['Timestamp'];
                       // return from each post
                       return Padding(
-                        padding: const EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.all(25.0),
                         child: MyListTile(
                           title: message,
                           subtitle: userEmail,

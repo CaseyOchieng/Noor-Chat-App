@@ -25,11 +25,20 @@ class MyListTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
         child: ListTile(
-          title: Text(title),
-          subtitle: Text(
-            subtitle,
-            style: TextStyle(
-              color: Theme.of(context).colorScheme.primary,
+          title: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(
+              title,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ),
+          subtitle: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(
+              subtitle,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.secondary,
+              ),
             ),
           ),
         ),
