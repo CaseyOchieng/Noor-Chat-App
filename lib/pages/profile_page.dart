@@ -20,15 +20,6 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: AppBar(
-        elevation: 0,
-        title: Text(
-          'Profile',
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.inversePrimary,
-          ),
-        ),
-      ),
       body: FutureBuilder<DocumentSnapshot<Map<String, dynamic>?>>(
         future: getUserDetails(),
         builder: (context, snapshot) {
@@ -52,20 +43,52 @@ class ProfilePage extends StatelessWidget {
             return Center(
               child: Column(
                 children: [
+                  const Padding(
+                    padding: EdgeInsets.only(
+                      top: 50.0,
+                      left: 25.0,
+                    ),
+                    child: Row(
+                      children: [
+                        BackButton(),
+                      ],
+                    ),
+                  ),
                   // Profile pic
-                  Image.asset(
-                    'asset/profile.png',
-                    width: 100,
+                  // Sized box
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  // Sized box
+
+                  Container(
+                    decoration: const BoxDecoration(),
+                    child: Image.asset(
+                      'asset/profile.png',
+                      width: 200,
+                    ),
+                  ),
+                  // const Divider(),
+                  const SizedBox(
+                    height: 25,
                   ),
                   //Name of user
                   Text(
                     user!['username'].toString(),
-                    style: const TextStyle(),
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
                   ),
                   //Email
                   Text(
                     user['email'].toString(),
-                    style: const TextStyle(),
+                    style: TextStyle(
+                      color: Colors.grey[600],
+                    ),
                   )
                 ],
               ),

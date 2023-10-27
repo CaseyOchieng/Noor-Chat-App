@@ -1,15 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:noor/components/my_drawer.dart';
+import 'package:noor/components/my_textfield.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
+class HomePage extends StatelessWidget {
+  HomePage({super.key});
+//Text controller
+  final TextEditingController newPostController = TextEditingController();
+//Text controller
   void logout() {
     FirebaseAuth.instance.signOut();
   }
@@ -17,7 +15,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        foregroundColor: Theme.of(context).colorScheme.inversePrimary,
         elevation: 0,
         title: Center(
           child: Text(
@@ -41,6 +42,17 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       drawer: const MyDrawer(),
+      body: Column(
+        children: [
+          // TextField box for user to type
+          MyTextField(
+            hint: 'Say something',
+            obscure: false,
+            controller: newPostController,
+          ),
+          // TextField box for user to type
+        ],
+      ),
     );
   }
 }

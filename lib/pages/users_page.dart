@@ -13,15 +13,6 @@ class _UsersPageState extends State<UsersPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        title: Text(
-          'Users',
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.inversePrimary,
-          ),
-        ),
-      ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection('Users').snapshots(),
         builder: (context, snapshot) {
@@ -42,16 +33,39 @@ class _UsersPageState extends State<UsersPage> {
           }
           // get all users
           final users = snapshot.data!.docs;
-          return ListView.builder(
-            itemCount: users.length,
-            itemBuilder: (context, index) {
-              // get individual user
-              final user = users[index];
-              return ListTile(
-                title: Text(user['username']),
-                subtitle: Text(user['email']),
-              );
-            },
+          return Column(
+            children: [
+              //Button
+              const Padding(
+                padding: EdgeInsets.only(
+                  top: 50.0,
+                  left: 25.0,
+                ),
+                child: Row(
+                  children: [
+                    BackButton(),
+                  ],
+                ),
+              ),
+              //Button
+              const SizedBox(
+                height: 25,
+              ),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: users.length,
+                  padding: const EdgeInsets.all(0),
+                  itemBuilder: (context, index) {
+                    // get individual user
+                    final user = users[index];
+                    return ListTile(
+                      title: Text(user['username']),
+                      subtitle: Text(user['email']),
+                    );
+                  },
+                ),
+              ),
+            ],
           );
         },
       ),
