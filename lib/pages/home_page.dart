@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:noor/components/my_drawer.dart';
+import 'package:noor/components/my_post_button.dart';
 import 'package:noor/components/my_textfield.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,9 +9,7 @@ class HomePage extends StatelessWidget {
 //Text controller
   final TextEditingController newPostController = TextEditingController();
 //Text controller
-  void logout() {
-    FirebaseAuth.instance.signOut();
-  }
+  void postMessage() {}
 
   @override
   Widget build(BuildContext context) {
@@ -45,10 +44,26 @@ class HomePage extends StatelessWidget {
       body: Column(
         children: [
           // TextField box for user to type
-          MyTextField(
-            hint: 'Say something',
-            obscure: false,
-            controller: newPostController,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: Row(
+              children: [
+                Expanded(
+                  child: MyTextField(
+                    hint: 'Say something',
+                    obscure: false,
+                    controller: newPostController,
+                  ),
+                ),
+                // const SizedBox(
+                //   width: 10,
+                // ),
+                // post button
+                PostButton(
+                  onTap: postMessage,
+                ),
+              ],
+            ),
           ),
           // TextField box for user to type
         ],
